@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Screen Keeper</string>
+    <string name="title_screen_keeper">Screen Keeper</string>
+    <string name="description_text">Prevents Teams screen sharing from lagging by keeping the screen actively updating with an invisible overlay.</string>
+    <string name="toggle_service">Toggle Service</string>
+    <string name="status_label">Status:</string>
+    <string name="status_stopped">Stopped</string>
+    <string name="status_running">Running</string>
+    <string name="permission_required">Overlay Permission Required</string>
+    <string name="permission_explanation">Screen Keeper needs permission to display an overlay. Please grant the permission in settings.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="notification_channel_name">Screen Keeper Service</string>
+    <string name="notification_channel_description">Notification for Screen Keeper service</string>
+    <string name="notification_title">Screen Keeper Active</string>
+    <string name="notification_text">Keeping screen active for presentations</string>
+    <string name="notification_action_stop">Stop</string>
+    <string name="fgs_justification">This app displays a nearly invisible overlay that continuously updates to prevent Microsoft Teams and similar screen sharing apps from optimizing for static content, which causes lag during presentations. The foreground service ensures reliable operation throughout long presentation sessions.</string>
+    
+    <!-- Tabs -->
+    <string name="tab_main">Main</string>
+    <string name="tab_logs">Logs</string>
+    
+    <!-- Logs -->
+    <string name="logs_title">Debug Logs</string>
+    <string name="logs_count">0 entries</string>
+    <string name="logs_refresh">Refresh</string>
+    <string name="logs_copy">Copy</string>
+    <string name="logs_clear">Clear</string>
+    <string name="logs_empty">No logs available. Logs will appear here as you use the app.</string>
+    <string name="logs_copied">Logs copied to clipboard</string>
+</resources>

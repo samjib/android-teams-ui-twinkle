@@ -34,4 +34,5 @@
     <string name="widget_status_title">Service Status</string>
     <string name="widget_status_subtitle_running">Screen Keeper is currently active</string>
     <string name="widget_status_subtitle_stopped">Screen Keeper is currently inactive</string>
+    <string name="widget_description">Shows Screen Keeper status and allows quick toggle</string>
 </resources>

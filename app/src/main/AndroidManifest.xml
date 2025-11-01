@@ -53,6 +53,22 @@
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Screen update prevention for Teams sharing" />
         </service>
+
+        <!-- Home Screen Widget -->
+        <receiver
+            android:name=".StatusWidgetProvider"
+            android:exported="true"
+            android:label="@string/widget_status_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.screenkeeper.widget.TOGGLE_SERVICE" />
+                <action android:name="com.screenkeeper.widget.UPDATE" />
+                <action android:name="com.screenkeeper.SERVICE_STATUS" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/status_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

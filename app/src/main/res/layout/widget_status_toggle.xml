@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widgetContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/widget_background">
+
+    <!-- Widget Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_screen_keeper"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="?android:textColorPrimary"
+        android:paddingBottom="8dp" />
+
+    <!-- Status Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="12dp">
+
+        <!-- Status Indicator -->
+        <ImageView
+            android:id="@+id/widgetStatusIndicator"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/widget_status_circle"
+            android:contentDescription="Status indicator"
+            android:layout_marginEnd="8dp" />
+
+        <!-- Status Text Container -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widgetStatusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status_stopped"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary" />
+
+            <TextView
+                android:id="@+id/widgetStatusSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_status_subtitle_stopped"
+                android:textSize="11sp"
+                android:textColor="?android:textColorSecondary"
+                android:paddingTop="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Toggle Button -->
+    <Button
+        android:id="@+id/widgetToggleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/toggle_service"
+        android:textSize="14sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
+
+    <!-- Permission Warning (initially hidden) -->
+    <TextView
+        android:id="@+id/widgetPermissionWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/permission_required"
+        android:textSize="12sp"
+        android:textColor="@color/status_stopped"
+        android:gravity="center"
+        android:padding="8dp"
+        android:visibility="gone" />
+
+</LinearLayout>

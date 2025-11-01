@@ -458,10 +458,13 @@ class ScreenUpdateService : Service() {
         // Save state to SharedPreferences
         val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         prefs.edit().putBoolean(KEY_SERVICE_RUNNING, running).apply()
-        
+
         // Broadcast the state change to MainActivity
         val intent = Intent(ACTION_SERVICE_STATUS)
         intent.putExtra(EXTRA_IS_RUNNING, running)
         sendBroadcast(intent)
+
+        // Update home screen widget
+        StatusWidgetProvider.updateAllWidgets(this)
     }
 }

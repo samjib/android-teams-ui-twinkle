@@ -29,4 +29,9 @@
     <string name="logs_clear">Clear</string>
     <string name="logs_empty">No logs available. Logs will appear here as you use the app.</string>
     <string name="logs_copied">Logs copied to clipboard</string>
+
+    <!-- Status Widget -->
+    <string name="widget_status_title">Service Status</string>
+    <string name="widget_status_subtitle_running">Screen Keeper is currently active</string>
+    <string name="widget_status_subtitle_stopped">Screen Keeper is currently inactive</string>
 </resources>

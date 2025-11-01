@@ -118,9 +118,31 @@ class MainFragment : Fragment() {
                 showPermissionCard()
             }
         }
-        
+
         binding.grantPermissionButton.setOnClickListener {
             requestOverlayPermission()
+        }
+
+        // Setup status toggle widget
+        binding.statusToggleSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isServiceRunning != isChecked) {
+                if (canDrawOverlays()) {
+                    toggleService()
+                } else {
+                    // Reset switch if permission not granted
+                    binding.statusToggleSwitch.isChecked = false
+                    showPermissionCard()
+                }
+            }
+        }
+
+        // Make the entire widget card clickable
+        binding.statusToggleWidget.setOnClickListener {
+            if (canDrawOverlays()) {
+                binding.statusToggleSwitch.isChecked = !binding.statusToggleSwitch.isChecked
+            } else {
+                showPermissionCard()
+            }
         }
     }
     
@@ -159,9 +181,13 @@ class MainFragment : Fragment() {
         if (canDrawOverlays()) {
             hidePermissionCard()
             binding.toggleButton.isEnabled = true
+            binding.statusToggleSwitch.isEnabled = true
+            binding.statusToggleWidget.alpha = 1.0f
         } else {
             showPermissionCard()
             binding.toggleButton.isEnabled = false
+            binding.statusToggleSwitch.isEnabled = false
+            binding.statusToggleWidget.alpha = 0.5f
         }
     }
     
@@ -222,12 +248,30 @@ class MainFragment : Fragment() {
                 ContextCompat.getColor(requireContext(), R.color.status_running)
             )
             binding.toggleButton.text = "Stop Service"
+
+            // Update status toggle widget
+            binding.statusToggleSwitch.isChecked = true
+            binding.widgetStatusSubtitle.text = getString(R.string.widget_status_subtitle_running)
+            binding.statusIndicator.setBackgroundColor(
+                ContextCompat.getColor(requireContext(), R.color.status_running)
+            )
+            binding.statusToggleWidget.strokeColor =
+                ContextCompat.getColor(requireContext(), R.color.status_running)
         } else {
             binding.statusValue.text = getString(R.string.status_stopped)
             binding.statusValue.setTextColor(
                 ContextCompat.getColor(requireContext(), R.color.status_stopped)
             )
             binding.toggleButton.text = getString(R.string.toggle_service)
+
+            // Update status toggle widget
+            binding.statusToggleSwitch.isChecked = false
+            binding.widgetStatusSubtitle.text = getString(R.string.widget_status_subtitle_stopped)
+            binding.statusIndicator.setBackgroundColor(
+                ContextCompat.getColor(requireContext(), R.color.status_stopped)
+            )
+            binding.statusToggleWidget.strokeColor =
+                ContextCompat.getColor(requireContext(), R.color.status_stopped)
         }
     }
 }
